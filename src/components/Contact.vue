@@ -45,7 +45,7 @@
             id="input-3"
             placeholder="Your message"
             rows="4"
-            v-model="form.message"
+            v-model="form.content"
             required
           ></b-textarea>
         </b-form-group>
@@ -65,13 +65,20 @@ export default {
       form: {
         name: '',
         email: '',
-        message: '',
+        content: '',
       },
     }
   },
   methods: {
     async submit() {
-      console.log('Sending form', this.form)
+      try {
+        const response = await this.$axios.$post(
+          `${this.$config.apiEndpoint}/contact-us`,
+          this.form
+        )
+      } catch (error) {
+        console.error(error)
+      }
     },
     computed: {
       ...mapGetters(['account', 'loading', 'piggyBank', 'isOwner']),
@@ -88,3 +95,4 @@ export default {
   max-width: 600px;
 }
 </style>
+
