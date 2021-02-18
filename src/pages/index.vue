@@ -48,10 +48,15 @@ export default {
       console.log('Request balance')
       try {
         const balance = await web3.eth.getBalance(this.piggyBank._address)
+        const balanceStr = web3.utils.fromWei(balance).toString()
         console.log(
           '🚀 ~ file: index.vue ~ line 53 ~ getBalance ~ balance',
-          web3.utils.fromWei(balance)
+          balanceStr
         )
+        if (balanceStr !== '0') {
+          window.alert(`The piggy bank has ${balanceStr} ETH`)
+        } else window.alert('There are funds in this piggy bank :(')
+        return balanceStr
       } catch (error) {
         console.error(error)
       }
@@ -78,11 +83,22 @@ export default {
 
       this.$store.commit('loading', true)
       try {
-        await this.piggyBank.methods.withdraw().send({ from: this.account })
+        const balanceStr = await this.getBalance()
+        if (balanceStr !== '0') {
+          await this.piggyBank.methods.withdraw().send({ from: this.account })
+          window.alert(
+            `${balanceStr} ETH have been transferred to your account!`
+          )
+        }
 
         this.$store.commit('loading', false)
       } catch (error) {
+        this.$store.commit('loading', false)
         console.error(error)
+        if (error.code === -32603)
+          window.alert(
+            'You are not the owner address. You cannot withdraw these funds'
+          )
       }
     },
   },
