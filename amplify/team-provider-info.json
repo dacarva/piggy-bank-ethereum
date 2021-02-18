@@ -10,6 +10,34 @@
       "StackName": "amplify-cryptopiggy-staging-172935",
       "StackId": "arn:aws:cloudformation:us-east-2:106906875273:stack/amplify-cryptopiggy-staging-172935/df29cfa0-720e-11eb-b335-027752755cb2",
       "AmplifyAppId": "d2zdnp0mfel4u6"
+    },
+    "nonCFNdata": {
+      "function": {
+        "cryptoPiggyLayer": {
+          "layerVersionMap": {
+            "1": {
+              "permissions": [
+                {
+                  "type": "private"
+                }
+              ],
+              "hash": "gZTT88Zzx0PUOc4kkez/Na902rFWoxZaouFQ2fkWcgQ="
+            }
+          }
+        }
+      }
+    },
+    "categories": {
+      "function": {
+        "crpytoPiggyContact": {
+          "deploymentBucketName": "amplify-cryptopiggy-staging-172935-deployment",
+          "s3Key": "amplify-builds/crpytoPiggyContact-6b34392b76566d586c4e-build.zip"
+        },
+        "cryptoPiggyLayer": {
+          "deploymentBucketName": "amplify-cryptopiggy-staging-172935-deployment",
+          "s3Key": "amplify-builds/cryptoPiggyLayer-build.zip"
+        }
+      }
     }
   }
 }
