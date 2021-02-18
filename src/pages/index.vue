@@ -109,7 +109,7 @@ export default {
     ...mapGetters(['account', 'loading', 'piggyBank', 'page']),
   },
 
-  async created() {
+  async mounted() {
     await this.loadWeb3()
     await this.$store.dispatch('loadBlockchainData')
     this.initialized = true

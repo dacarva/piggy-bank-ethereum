@@ -80,7 +80,6 @@ export default {
   computed: {
     ...mapGetters(['account', 'loading', 'piggyBank', 'isOwner']),
   },
-  async created() {},
   async mounted() {
     await this.getBalance()
   },
