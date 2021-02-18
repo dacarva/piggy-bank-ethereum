@@ -1,16 +1,12 @@
 <template>
   <div class="container">
     <loading :active.sync="loading" :is-full-page="true"></loading>
-    <div>
-      <Logo />
-      <h1 class="title">The best Piggy Bank</h1>
-      <div class="links">
-        <button @click="getBalance()" class="button--green">Get Balance</button>
-        <button @click="deposit()" class="button--grey">Deposit 1 ETH</button>
-        <button @click="withdraw()" class="button--green">
-          Withdraw Funds
-        </button>
-      </div>
+    <Navbar />
+
+    <div v-if="initialized" class="sections">
+      <Account v-if="page === 'account'" />
+      <Deposit v-if="page === 'deposit'" />
+      <Contact v-if="page === 'contact'" />
     </div>
   </div>
 </template>
@@ -24,6 +20,12 @@ import { mapGetters } from 'vuex'
 export default {
   components: {
     Loading,
+  },
+
+  data() {
+    return {
+      initialized: false,
+    }
   },
 
   methods: {
@@ -104,12 +106,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['account', 'loading', 'piggyBank']),
+    ...mapGetters(['account', 'loading', 'piggyBank', 'page']),
   },
 
-  async mounted() {
+  async created() {
     await this.loadWeb3()
     await this.$store.dispatch('loadBlockchainData')
+    this.initialized = true
   },
 }
 </script>
@@ -118,7 +121,6 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -140,6 +142,10 @@ export default {
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
+}
+
+.sections {
+  margin-top: 2em;
 }
 
 .links {

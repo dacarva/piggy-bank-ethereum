@@ -8,6 +8,12 @@ const mutations = {
   piggyBank(state, piggyBank) {
     state.piggyBank = piggyBank
   },
+  page(state, page) {
+    state.page = page
+  },
+  isOwner(state, isOwner) {
+    state.isOwner = isOwner
+  },
 }
 
 export default mutations

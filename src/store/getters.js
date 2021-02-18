@@ -8,6 +8,12 @@ const getters = {
   piggyBank(state) {
     return state.piggyBank
   },
+  page(state) {
+    return state.page
+  },
+  isOwner(state) {
+    return state.isOwner
+  },
 }
 
 export default getters

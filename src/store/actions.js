@@ -20,6 +20,10 @@ const actions = {
           networkData.address
         )
         commit('piggyBank', piggyBank)
+        //Check if the account is the owner of the contract
+        const owner = await piggyBank.methods.owner().call()
+        if (accounts[0] === owner) commit('isOwner', true)
+
         commit('loading', false)
       } else {
         window.alert('SocialNetwork contract not deployed to detected network')

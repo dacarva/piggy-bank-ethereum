@@ -28,9 +28,4 @@ contract PiggyBank {
         owner.transfer(address(this).balance);
         emit FundsWithdrawed(address(this).balance);
     }
-
-    function sentToOwner() public payable {
-        owner.transfer(msg.value);
-        emit FundsWithdrawed(msg.value);
-    }
 }
