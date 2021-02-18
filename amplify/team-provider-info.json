@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cryptopiggy-staging-172935-authRole",
+      "UnauthRoleArn": "arn:aws:iam::106906875273:role/amplify-cryptopiggy-staging-172935-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::106906875273:role/amplify-cryptopiggy-staging-172935-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-cryptopiggy-staging-172935-deployment",
+      "UnauthRoleName": "amplify-cryptopiggy-staging-172935-unauthRole",
+      "StackName": "amplify-cryptopiggy-staging-172935",
+      "StackId": "arn:aws:cloudformation:us-east-2:106906875273:stack/amplify-cryptopiggy-staging-172935/df29cfa0-720e-11eb-b335-027752755cb2",
+      "AmplifyAppId": "d2zdnp0mfel4u6"
+    }
+  }
+}

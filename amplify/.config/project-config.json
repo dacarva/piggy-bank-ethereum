@@ -1,0 +1,17 @@
+{
+  "providers": [
+    "awscloudformation"
+  ],
+  "projectName": "CryptoPiggy",
+  "version": "3.0",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "vue",
+    "config": {
+      "SourceDir": "src",
+      "DistributionDir": "src/dist",
+      "BuildCommand": "npm run generate",
+      "StartCommand": "npm run dev"
+    }
+  }
+}

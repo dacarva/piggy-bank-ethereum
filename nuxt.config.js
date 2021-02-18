@@ -2,6 +2,10 @@ export default {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: 'piggy-bank',
+
+        target: 'static',
+        ssr: false,
+
         htmlAttrs: {
             lang: 'en',
         },
