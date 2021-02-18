@@ -1,5 +1,7 @@
 # piggy-bank
 
+This project was built as a technical test. It has been deployed at the Kovan Test network.
+
 ## Build Setup
 
 ```bash
